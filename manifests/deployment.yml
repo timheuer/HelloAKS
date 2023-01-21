@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: helloaks
-          image: helloaksregistry.azurecr.io/helloaks
+          image: myhappfunservice2.azurecr.io/helloaks
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
