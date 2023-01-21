@@ -5,10 +5,10 @@ name: BuildAndDeploy
             - master
     workflow_dispatch: {}
 env:
-    ACR_RESOURCE_GROUP: helloaksclusterregistry
-    AZURE_CONTAINER_REGISTRY: vramakhelloaksreg
-    CLUSTER_NAME: helloakscluster
-    CLUSTER_RESOURCE_GROUP: helloaksrg
+    ACR_RESOURCE_GROUP: HelloAKS_RG
+    AZURE_CONTAINER_REGISTRY: helloaksregistry
+    CLUSTER_NAME: helloaks1
+    CLUSTER_RESOURCE_GROUP: HelloAKS_RG
     CONTAINER_NAME: helloaks
     DEPLOYMENT_MANIFEST_PATH: |
         ./manifests/deployment.yml
