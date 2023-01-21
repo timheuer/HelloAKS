@@ -24,7 +24,7 @@ jobs:
             - uses: azure/login@v1.4.3
               name: Azure login
               with:
-                creds: ${{ secrets.azure_credentials }}
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
             - name: Build and push image to ACR
               run: az acr build --image ${{ secrets.repository }}:${{ github.sha }} --registry ${{ secrets.registry }} -g ${{ secrets.resource_group }} -f ./HelloAKS/Dockerfile ./
     deploy:
