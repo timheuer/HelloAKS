@@ -24,7 +24,9 @@ jobs:
             - uses: azure/login@v1
               name: Azure login
               with:
-                creds: ${{ secrets.AZURE_CREDENTIALS }}
+                client-id: ${{ secrets.service_principal }}
+                tenant-id: ${{ secrets.tenant }}
+                subscription-id: ${{ secrets.subscription }}
             - name: Build and push image to ACR
               run: az acr build --image ${{ secrets.repository }}:${{ github.sha }} --registry ${{ secrets.registry }} -g ${{ secrets.resource_group }} -f ./HelloAKS/Dockerfile ./
     deploy:
@@ -40,7 +42,9 @@ jobs:
             - uses: azure/login@v1
               name: Azure login
               with:
-                creds: ${{ secrets.azure_credentials }}
+                client-id: ${{ secrets.service_principal }}
+                tenant-id: ${{ secrets.tenant }}
+                subscription-id: ${{ secrets.subscription }}
             - uses: azure/aks-set-context@v3
               name: Get K8s context
               with:
